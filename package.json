@@ -1,0 +1,43 @@
+{
+  "name": "pi-home-internal",
+  "version": "1.0.0",
+  "description": "The internal application for managing my Pi Home Server on the local network.",
+  "main": "dist/app.js",
+  "scripts": {
+    "start": "npm run build && npm run serve:dev",
+    "serve:prod": "NODE_ENV=production node -r dotenv/config dist/app.js",
+    "serve:dev": "NODE_ENV=development nodemon -L --watch './**/*.ts' --exec 'ts-node' -r dotenv/config src/app.ts",
+    "build": "npm run clean && npm run compile",
+    "clean": "rm -rf dist",
+    "compile": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorpheusZero/pi-home-internal.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MorpheusZero/pi-home-internal/issues"
+  },
+  "homepage": "https://github.com/MorpheusZero/pi-home-internal#readme",
+  "dependencies": {
+    "@types/restify": "^8.5.1",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "restify": "^8.5.1",
+    "socket.io": "^4.0.2",
+    "sqlite": "^4.0.21",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/node": "^15.0.2",
+    "dotenv": "^9.0.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}
